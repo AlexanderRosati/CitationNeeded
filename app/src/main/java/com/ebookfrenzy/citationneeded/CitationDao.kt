@@ -1,0 +1,42 @@
+package com.ebookfrenzy.citationneeded
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+
+@Dao
+interface CitationDao {
+    @Insert
+    fun insertCitation(citation : Citation)
+
+    @Insert
+    fun insertTag(tag : Tag)
+
+    @Query("SELECT * FROM CITATION WHERE AUTHOR_FNAME = LOWER(:fname) AND AUTHOR_LNAME = LOWER(:lname)")
+    fun filterByAuthor(fname : String, lname : String) : List<Citation>
+
+    @Query("SELECT * FROM CITATION WHERE BOOK_NAME = LOWER(:bookName)")
+    fun filterByBook(bookName : String) : List<Citation>
+
+    @Query("""
+    SELECT
+        C.CITATION_ID,
+        C.AUTHOR_FNAME,
+        C.AUTHOR_LNAME,
+        C.BOOK_NAME,
+        C.CITATION
+    FROM
+	    (SELECT 
+            CITATION_ID
+        FROM
+            TAG
+	    WHERE
+            TAG = :tag) T
+	
+	    JOIN
+
+	    CITATION C
+	
+	    ON T.CITATION_ID = C.CITATION_ID""")
+    fun filterByTag(tag : String) : List<Citation>
+}
