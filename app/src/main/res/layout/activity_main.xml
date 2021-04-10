@@ -33,6 +33,4 @@
         android:layout_height="match_parent"
         appLlayout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <include layout="@layout/content_main" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
