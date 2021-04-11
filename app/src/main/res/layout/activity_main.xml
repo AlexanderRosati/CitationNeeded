@@ -29,8 +29,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
+        appLlayout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        appLlayout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
