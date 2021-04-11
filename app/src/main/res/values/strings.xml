@@ -11,11 +11,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="fname_label_text">Author\'s First Name</string>
-    <string name="lname_label_text">Author\'s Last Name</string>
+    <string name="fname_label_text">First Name</string>
+    <string name="lname_label_text">Last Name</string>
     <string name="book_title_label_text">Book Title (optional)</string>
     <string name="citation_label_text">Citation</string>
-    <string name="submit_btn_txt">Submit Citation</string>
+    <string name="submit_btn_txt">Submit</string>
     <string name="tags_tv_starting_txt">Tags</string>
     <string name="enter_tag_btn">Enter Tag</string>
     <string name="delete_tag_btn">Delete Tag</string>
