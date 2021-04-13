@@ -6,11 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 class CitationViewModel(application : Application) : AndroidViewModel(application) {
     private val repository : CitationRepository = CitationRepository(application)
 
-    fun insertCitation(citation : Citation) {
-        repository.insertCitation(citation)
-    }
-
-    fun insertTag(tag : Tag) {
-        repository.insertTag(tag)
+    fun insertCitation(citation : Citation, tags : List<Tag>) {
+        repository.insertCitation(citation, tags)
     }
 }

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(),
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Tag"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Author"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Book"))
-        val adapter = TabPagerAdapter(supportFragmentManager, binding.tabLayout.tabCount)
+        val adapter = TabPagerAdapter(supportFragmentManager, application, binding.tabLayout.tabCount)
         binding.pager.adapter = adapter
         binding.pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
         binding.tabLayout.addOnTabSelectedListener(object :

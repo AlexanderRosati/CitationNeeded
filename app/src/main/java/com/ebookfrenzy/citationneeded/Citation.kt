@@ -10,7 +10,7 @@ class Citation {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "CITATION_ID")
-    var citationID : Int = 0
+    var citationID : Long = 0
 
     @ColumnInfo(name = "AUTHOR_FNAME")
     @NonNull

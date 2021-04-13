@@ -18,7 +18,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/delTagBtn"
         app:layout_constraintEnd_toStartOf="@+id/tagsTV"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/book_title_label_text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFname" />
 
@@ -43,8 +43,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTag"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookTitleLabel" />
@@ -57,7 +57,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextLname"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/tag_label_txt"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/editTextBookTitle"
         app:layout_constraintTop_toBottomOf="@+id/editTextLname" />
 
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="@string/submit_btn_txt"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -91,7 +91,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/delete_tag_btn"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/submitCitationBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/enter_tag_btn"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/delTagBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -111,7 +111,7 @@
         app:layout_constraintVertical_chainStyle="spread" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -119,7 +119,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/editTextBookTitle"
@@ -132,7 +132,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/citation_label_text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBookTitle" />
 
@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/lname_label_text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/fnameLabel"
         app:layout_constraintStart_toEndOf="@+id/editTextFname" />
 
@@ -155,7 +155,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/editTextFname"
@@ -167,11 +167,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/fname_label_text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32999998" />
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <TextView
         android:id="@+id/tagsTV"
@@ -183,6 +183,6 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/submitCitationBtn"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

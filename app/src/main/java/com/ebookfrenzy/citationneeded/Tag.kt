@@ -13,5 +13,10 @@ class Tag {
 
     @ColumnInfo(name = "CITATION_ID")
     @NonNull
-    var citationID : Int = 0
+    var citationID : Long = 0
+
+    constructor(tag : String, citationID : Long) {
+        this.tag = tag
+        this.citationID = citationID
+    }
 }

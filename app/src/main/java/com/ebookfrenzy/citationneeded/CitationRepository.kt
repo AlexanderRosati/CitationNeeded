@@ -14,20 +14,20 @@ class CitationRepository(application : Application) {
         citationDao = db?.citationDao()
     }
 
-    fun insertCitation(newCitation : Citation) {
+    fun insertCitation(newCitation : Citation, tags : List<Tag>) {
         CoroutineScope(IO).launch {
-            insertCitationAsync(newCitation)
+            val citationID = insertCitationAsync(newCitation)
+            for (tag in tags) {
+                if (citationID != null) {
+                    tag.citationID = citationID
+                }
+                insertTagAsync(tag)
+            }
         }
     }
 
-    private suspend fun insertCitationAsync(newCitation : Citation) {
-        citationDao?.insertCitation(newCitation)
-    }
-
-    fun insertTag(tag : Tag) {
-        CoroutineScope(IO).launch {
-            insertTagAsync(tag)
-        }
+    private suspend fun insertCitationAsync(newCitation : Citation) : Long? {
+        return citationDao?.insertCitation(newCitation)
     }
 
     private suspend fun insertTagAsync(tag : Tag) {

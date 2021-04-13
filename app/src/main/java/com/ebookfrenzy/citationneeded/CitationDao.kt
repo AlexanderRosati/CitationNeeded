@@ -7,7 +7,7 @@ import androidx.room.Query
 @Dao
 interface CitationDao {
     @Insert
-    fun insertCitation(citation : Citation)
+    fun insertCitation(citation : Citation) : Long
 
     @Insert
     fun insertTag(tag : Tag)
