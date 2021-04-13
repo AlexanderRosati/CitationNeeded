@@ -9,6 +9,12 @@ interface CitationDao {
     @Insert
     fun insertCitation(citation : Citation) : Long
 
+    @Query("DELETE FROM CITATION WHERE CITATION_ID = :citationID")
+    fun deleteCitation(citationID : Long)
+
+    @Query("DELETE FROM TAG WHERE CITATION_ID = :citationID")
+    fun deleteTags(citationID : Long)
+
     @Insert
     fun insertTag(tag : Tag)
 
@@ -31,12 +37,12 @@ interface CitationDao {
         FROM
             TAG
 	    WHERE
-            TAG = :tag) T
+            LOWER(TAG) = LOWER(:tag)) T
 	
 	    JOIN
 
 	    CITATION C
 	
 	    ON T.CITATION_ID = C.CITATION_ID""")
-    fun filterByTag(tag : String) : List<Citation>
+    fun searchByTag(tag : String) : List<Citation>
 }

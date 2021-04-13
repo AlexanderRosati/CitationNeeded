@@ -10,9 +10,10 @@ class TabPagerAdapter(fm : FragmentManager, private var app : Application, priva
         FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position : Int) : Fragment {
+        //return a fragment depending on 'position'
         when (position) {
             0 -> return NewCitationFragment(app)
-            1 -> return SearchByTagFragment()
+            1 -> return SearchByTagFragment(app)
             2 -> return SearchByAuthorFragment()
             3 -> return SearchByBookFragment()
             else -> return NewCitationFragment(app)

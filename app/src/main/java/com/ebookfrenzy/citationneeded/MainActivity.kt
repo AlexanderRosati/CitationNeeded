@@ -18,19 +18,24 @@ class MainActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater) //get binding
         setContentView(binding.root)
         setSupportActionBar(findViewById(R.id.toolbar))
         configureTabLayout()
     }
 
     private fun configureTabLayout() {
+        //add tabs
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("New Citation"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Tag"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Author"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Search by Book"))
+
+        //instantiate tab adapter and assign it to pager
         val adapter = TabPagerAdapter(supportFragmentManager, application, binding.tabLayout.tabCount)
         binding.pager.adapter = adapter
+
+        //setting up pager
         binding.pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
         binding.tabLayout.addOnTabSelectedListener(object :
             TabLayout.OnTabSelectedListener {
