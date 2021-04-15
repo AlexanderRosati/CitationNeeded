@@ -25,4 +25,7 @@
     <string name="delete_citation_btn_txt">Delete Citation</string>
     <string name="search_by_tag_label_txt">Search by Tag</string>
     <string name="search_txt">Search</string>
+    <string name ="search_author_btn">Search</string>
+    <string name="first_name_search_label">First Name:</string>
+    <string name="last_name_search_label">Last Name:</string>
 </resources>
