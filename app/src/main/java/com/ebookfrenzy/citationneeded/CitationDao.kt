@@ -18,10 +18,10 @@ interface CitationDao {
     @Insert
     fun insertTag(tag : Tag)
 
-    @Query("SELECT * FROM CITATION WHERE AUTHOR_FNAME = LOWER(:fname) AND AUTHOR_LNAME = LOWER(:lname)")
+    @Query("SELECT * FROM CITATION WHERE LOWER (AUTHOR_FNAME) = LOWER(:fname) AND LOWER(AUTHOR_LNAME) = LOWER(:lname)")
     fun filterByAuthor(fname : String, lname : String) : List<Citation>
 
-    @Query("SELECT * FROM CITATION WHERE BOOK_NAME = LOWER(:bookName)")
+    @Query("SELECT * FROM CITATION WHERE LOWER(BOOK_NAME) = LOWER(:bookName)")
     fun filterByBook(bookName : String) : List<Citation>
 
     @Query("""
