@@ -1,6 +1,7 @@
 package com.ebookfrenzy.citationneeded
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
@@ -11,7 +12,7 @@ import kotlin.coroutines.CoroutineContext
 class CitationRepository(application : Application) {
     private var citationDao : CitationDao? = null //the DAO, contains all our queries
     private var searchByTagResult : MutableLiveData<List<Citation>> = MutableLiveData() //results of searching by tag
-
+    private var searchByAuthorResult : MutableLiveData<List<Citation>> = MutableLiveData()
     init {
         //getting room database and DAO
         val db : CitationRoomDatabase? = CitationRoomDatabase.getDatabase(application)
@@ -55,6 +56,26 @@ class CitationRepository(application : Application) {
     fun getSearchByTagResult() : MutableLiveData<List<Citation>> {
         //return MutableLiveData
         return searchByTagResult
+    }
+
+
+    fun getSearchByAuthorResult() : MutableLiveData<List<Citation>> {
+
+        //return MutableLiveData
+        return searchByAuthorResult
+    }
+
+
+    private suspend  fun  searchByAuthorAsync(firstName: String, lastName:String):List<Citation>?{
+        return citationDao?.filterByAuthor(firstName, lastName)
+    }
+    fun searchByAuthor(firstName: String, lastName:String){
+        CoroutineScope(IO).launch {
+            //query CITATION table by tag and assign to MutableLiveData
+            //assignment is done on main thread and not background thread
+            val list = searchByAuthorAsync(firstName, lastName);
+            searchByAuthorResult.postValue(list)
+        }
     }
 
     fun deleteCitation(citationID : Long) {

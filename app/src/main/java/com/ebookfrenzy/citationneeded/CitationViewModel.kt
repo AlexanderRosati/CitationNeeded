@@ -26,4 +26,14 @@ class CitationViewModel(application : Application) : AndroidViewModel(applicatio
     fun getSearchByTagResult () : MutableLiveData<List<Citation>> {
         return repository.getSearchByTagResult()
     }
+
+    // filter by AUTHOR
+    fun searchByAuthor (firstName:String, lastName:String){
+        repository.searchByAuthor(firstName, lastName)
+    }
+
+    //return MutableLiveData for searching by Author
+    fun getSearchByAuthorResult () : MutableLiveData<List<Citation>> {
+        return repository.getSearchByAuthorResult()
+    }
 }
