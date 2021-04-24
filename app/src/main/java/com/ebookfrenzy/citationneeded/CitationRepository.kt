@@ -13,6 +13,7 @@ class CitationRepository(application : Application) {
     private var citationDao : CitationDao? = null //the DAO, contains all our queries
     private var searchByTagResult : MutableLiveData<List<Citation>> = MutableLiveData() //results of searching by tag
     private var searchByAuthorResult : MutableLiveData<List<Citation>> = MutableLiveData()
+    private var searchByBookResult : MutableLiveData<List<Citation>> = MutableLiveData()
     init {
         //getting room database and DAO
         val db : CitationRoomDatabase? = CitationRoomDatabase.getDatabase(application)
@@ -60,7 +61,6 @@ class CitationRepository(application : Application) {
 
 
     fun getSearchByAuthorResult() : MutableLiveData<List<Citation>> {
-
         //return MutableLiveData
         return searchByAuthorResult
     }
@@ -75,6 +75,24 @@ class CitationRepository(application : Application) {
             //assignment is done on main thread and not background thread
             val list = searchByAuthorAsync(firstName, lastName);
             searchByAuthorResult.postValue(list)
+        }
+    }
+
+    fun getSearchByBookResult() : MutableLiveData<List<Citation>> {
+        //returns mutable data
+        return searchByBookResult
+    }
+
+    private suspend fun  searchByBookTitleAsync(bookTitle : String):List<Citation>?{
+        return citationDao?.filterByBook(bookTitle)
+    }
+
+    fun searchByBookTitle(bookTitle : String){
+        CoroutineScope(IO).launch {
+            //query CITATION table by tag and assign to MutableLiveData
+            //assignment is done on main thread and not background thread
+            val list = searchByBookTitleAsync(bookTitle);
+            searchByBookResult.postValue(list)
         }
     }
 

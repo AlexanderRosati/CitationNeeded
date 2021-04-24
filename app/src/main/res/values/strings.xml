@@ -28,4 +28,5 @@
     <string name ="search_author_btn">Search</string>
     <string name="first_name_search_label">First Name:</string>
     <string name="last_name_search_label">Last Name:</string>
+    <string name="book_title_search_label">Book Title</string>
 </resources>

@@ -15,7 +15,7 @@ class TabPagerAdapter(fm : FragmentManager, private var app : Application, priva
             0 -> return NewCitationFragment(app)
             1 -> return SearchByTagFragment(app)
             2 -> return SearchByAuthorFragment(app)
-            3 -> return SearchByBookFragment()
+            3 -> return SearchByBookFragment(app)
             else -> return NewCitationFragment(app)
         }
     }
